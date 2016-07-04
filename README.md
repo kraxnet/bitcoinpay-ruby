@@ -22,7 +22,28 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Initialize new client using your API token
+
+    require 'bitcoinpay'
+    client = Bitcoinpay::Client.new("my api token")
+
+Get transaction history, filter only confirmed transactions
+
+    client.transaction_history(status: "confirmed")
+
+Create new payment request
+
+    client.create_payment_request(
+      settled_currency": "CZK",
+      return_url: "https://www.mysite/bitcoin_payments/return",
+      notify_url: "https://www.mysite/bitcoin_payments/notify",
+      notify_email: "notify@mysite",
+      price: 200,
+      currency: "CZK",
+      reference: "123456789",
+      item: "Test item",
+      description: "Test descripion"
+    )
 
 ## Development
 
@@ -38,4 +59,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
